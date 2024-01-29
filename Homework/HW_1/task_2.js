@@ -28,3 +28,57 @@
 // Клиент Алексей заказал: Пиццу "Пепперони" и Тирамису.
 // Клиент Мария заказала: Суши "Калифорния" и Пиццу "Маргарита".
 // Клиент Ирина заказала: Чизкейк.
+
+const chefsSpecialization = new Map([
+  ["Виктор", "Пицца"],
+  ["Ольга", "Суши"],
+  ["Дмитрий", "Десерты"],
+]);
+
+const dishesAndChefs = new Map([
+  ['Пицца "Маргарита"', "Виктор"],
+  ['Пицца "Пепперони"', "Виктор"],
+  ['Суши "Филадельфия"', "Ольга"],
+  ['Суши "Калифорния"', "Ольга"],
+  ["Тирамису", "Дмитрий"],
+  ["Чизкейк", "Дмитрий"],
+]);
+
+const orders = new Map();
+
+const orderAlexey = new Map([
+  ['Пицца "Пепперони"', 1],
+  ["Тирамису", 1],
+]);
+orders.set({ name: "Алексей" }, orderAlexey);
+
+const orderMaria = new Map([
+  ['Суши "Калифорния"', 1],
+  ['Пицца "Маргарита"', 1],
+]);
+orders.set({ name: "Мария" }, orderMaria);
+
+const orderIrina = new Map([["Чизкейк", 1]]);
+orders.set({ name: "Ирина" }, orderIrina);
+
+// Вывод специализации поваров
+console.log("Специализация поваров:");
+for (const [chef, specialization] of chefsSpecialization) {
+  console.log(`${chef} - ${specialization}`);
+}
+
+// Вывод блюд и их поваров
+console.log("\nБлюда и их повара:");
+for (const [dish, chef] of dishesAndChefs) {
+  console.log(`${dish} - ${chef}`);
+}
+
+// Вывод заказов клиентов
+console.log("\nЗаказы клиентов:");
+for (const [client, order] of orders) {
+  console.log(`${client.name} заказал(а):`);
+  for (const [dish, quantity] of order) {
+    console.log(`${dish} - ${quantity} порция(и)`);
+  }
+  console.log("---");
+}
