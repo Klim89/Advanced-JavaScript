@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <button class="btn">Enter</button>
+    <div class="div"></div>
+    <script>
+        const btn = document.querySelector('.btn');
+        const div = document.querySelector('.div');
+        const input = document.getElementById('input');
+
+        function validation() {
+            try {
+                if (isNaN(Number(input.value)) || input.value === '') {
+                    throw new Error('this is not a number');
+                }
+                div.textContent = 'congratulations!!!'
+            }
+            catch (error) {
+                div.textContent = error.message;
+            }
+        }
+        btn.addEventListener('click', validation);
+    </script>
+</body>
+
+</html>
