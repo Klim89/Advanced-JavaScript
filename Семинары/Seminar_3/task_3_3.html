@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style3.css">
+    <script src="task_3.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Добро пожаловать на секретную страницу!</h2>
+        <p>Вы успешно вошли в систему.</p>
+        <button class="logout-btn">Выйти</button>
+    </div>
+
+</body>
+
+</html>
+
+const submitBtn = document.querySelector(".register-btn");
+
+if (submitBtn) {
+    submitBtn.addEventListener("click", function () {
+        localStorage.setItem("userName", document.querySelector(".username-input").value)
+        localStorage.setItem("password", document.querySelector(".password-input").value)
+        window.location.href = "indexEnter.html"
+    })
+}
+
+const loginBtn = document.querySelector(".login-btn");
+if (loginBtn) {
+    loginBtn.addEventListener("click", function () {
+        if (document.querySelector(".username-input").value === localStorage.getItem("userName")
+            && document.querySelector(".password-input").value === localStorage.getItem("password")) {
+            window.location.href = "indexHello.html"
+        } else console.log("нет такого пользователя")
+    })
+}
+
+const logoutBtn = document.querySelector(".logout-btn");
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", function () {
+        window.location.href = "indexEnter.html"
+    })
+}
