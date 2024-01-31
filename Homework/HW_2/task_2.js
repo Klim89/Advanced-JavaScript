@@ -5,6 +5,7 @@
 // Напишите функцию, которая будет добавлять отзыв в контейнер с отзывами. Однако если длина введенного отзыва менее 50 или более 500 символов, функция должна генерировать исключение.
 
 // При добавлении отзыва, он должен отображаться на странице под предыдущими отзывами, а не заменять их.
+"use strict";
 
 const initialData = [
   {
@@ -40,4 +41,25 @@ const initialData = [
   },
 ];
 
-// Вы можете использовать этот массив initialData для начальной загрузки данных при запуске вашего приложения.
+const btn = document.querySelector(".btn");
+const input = document.getElementById("input");
+const reviewsContainer = document.querySelector(".container");
+
+function addReview() {
+  reviewsContainer.textContent = "";
+  try {
+    if (input.value.trim().length < 50 || input.value.trim().length > 500) {
+      throw new Error("Or too short or too long");
+    }
+    const newReviewElement = document.createElement("div");
+    newReviewElement.textContent = input.value;
+    reviewsContainer.appendChild(newReviewElement);
+    input.value = "";
+  } catch (error) {
+    reviewsContainer.textContent = error.message;
+  } finally {
+    console.log("We finished");
+  }
+}
+
+btn.addEventListener("click", addReview);
