@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Отзывы о продуктах</title>
+    <link rel="stylesheet" href="style.css">
     <script src="index.js" defer></script>
+
 </head>
+
 <body>
-    
+    <div class="add-review-page page">
+        <h2>Добавить отзыв</h2>
+        <label for="product-name">Название продукта:</label>
+        <input type="text" class="product-name" required>
+        <label for="review-text">Текст отзыва:</label>
+        <textarea class="review-text" required></textarea>
+        <button class="add-review-button">Добавить отзыв</button>
+        <button class="view-review-button">Просмотр отзывов</button>
+    </div>
+
+    <div class="view-reviews-page page">
+        <h2>Просмотр отзывов</h2>
+        <ul class="product-list"></ul>
+        <div class="reviews-container">
+        </div>
+        <button class="back-review-button">Просмотр отзывов</button>
+    </div>
 </body>
+
 </html>
