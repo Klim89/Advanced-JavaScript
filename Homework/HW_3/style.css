@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.page {
+    display: none;
+}
+
+button {
+    margin-top: 10px;
+}
+
+li {
+    cursor: pointer;
+    list-style-type: none;
+    margin-bottom: 5px;
+}
+
+li:hover {
+    text-decoration: underline;
+    color: blue;
+}
